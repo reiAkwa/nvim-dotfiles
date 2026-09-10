@@ -81,12 +81,14 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | Rust 增强 |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器 |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 文件树 |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊查找（文件 / 文本 / 缓冲区等） |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Telescope 依赖库 |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | 顶部标签栏 |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | 状态栏 |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git 状态标记 |
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | 快速注释 |
-| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | 内置终端 |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | 快捷键提示 |
+| [wilder.nvim](https://github.com/gelguy/wilder.nvim) | 命令模式补全 |
 
 ## 语言服务
 
@@ -103,6 +105,13 @@ Leader 键为 `空格`。
 | `gn` / `gp` | 下一个 / 上一个 buffer |
 | `J` / `K`（可视模式） | 上下移动选中行 |
 | `<leader>e` | 打开 / 关闭文件树 |
+| `<leader>ff` | 查找文件 |
+| `<leader>fg` | 实时全文搜索 |
+| `<leader>fw` | 搜索光标下单词 |
+| `<leader>fb` | 切换缓冲区 |
+| `<leader>fh` | 搜索帮助文档 |
+| `<leader>fr` | 最近打开的文件 |
+| `<leader>fd` | 搜索诊断信息 |
 | `<leader>tt` | 切换浮动终端 |
 | `<leader>th` / `<leader>tv` | 水平 / 垂直终端 |
 | `<leader>a`（Rust） | 代码操作 |
