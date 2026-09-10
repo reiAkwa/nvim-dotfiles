@@ -1,5 +1,5 @@
 local opts = {
-  noremap = true,
+  remap = false,
 }
 
 vim.g.mapleader = ' '

@@ -5,21 +5,30 @@ vim.pack.add {{
   version = vim.version.range('^9')
 }}
 
-local bufnr = vim.api.nvim_get_current_buf()
-vim.keymap.set(
-  "n",
-  "<leader>a",
-  function()
-    vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
-    -- or vim.lsp.buf.codeAction() if you don't want grouping.
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if not client or client.name ~= 'rust_analyzer' then
+      return
+    end
+
+    local bufopts = { silent = true, buffer = ev.buf }
+    vim.keymap.set(
+      "n",
+      "<leader>a",
+      function()
+        vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+        -- or vim.lsp.buf.codeAction() if you don't want grouping.
+      end,
+      bufopts
+    )
+    vim.keymap.set(
+      "n",
+      "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+      function()
+        vim.cmd.RustLsp({'hover', 'actions'})
+      end,
+      bufopts
+    )
   end,
-  { silent = true, buffer = bufnr }
-)
-vim.keymap.set(
-  "n",
-  "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
-  function()
-    vim.cmd.RustLsp({'hover', 'actions'})
-  end,
-  { silent = true, buffer = bufnr }
-)
+})
