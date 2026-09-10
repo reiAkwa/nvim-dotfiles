@@ -6,7 +6,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "alice_nightly"
+let g:colors_name = "alice-nightly"
 set background=dark
 
 if has("termguicolors") && !&termguicolors
@@ -231,7 +231,7 @@ local links = {
   { '@text.diff.delete', 'DiffDelete' },
 }
 
-local slug = 'alice_nightly'
+local slug = 'alice-nightly'
 local function apply()
   for _, l in ipairs(links) do
     vim.api.nvim_set_hl(0, l[1], { link = l[2] })

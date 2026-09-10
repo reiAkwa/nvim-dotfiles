@@ -1,5 +1,5 @@
 -- lualine.nvim theme: Alice Nightly (Alice series)
--- usage: require('lualine').setup({ options = { theme = 'alice_nightly' } })
+-- usage: require('lualine').setup({ options = { theme = 'alice-nightly' } })
 local c = {
   bg1  = '#090e12', bg2  = '#161b20',
   fg1  = '#e0e5ea', ink  = '#f6f9fb',

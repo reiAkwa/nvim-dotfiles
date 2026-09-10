@@ -4,7 +4,7 @@ vim.pack.add({
 
 require('toggleterm').setup({
     size = 20,              -- 终端窗口大小
-    open_mapping = [[<leader>tt]], -- 切换终端的快捷键
+    open_mapping = [[<C-t>]], -- 切换终端的快捷键
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,

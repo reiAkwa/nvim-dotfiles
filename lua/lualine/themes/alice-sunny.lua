@@ -1,10 +1,10 @@
--- lualine.nvim theme: Alice Rainy (Alice series)
--- usage: require('lualine').setup({ options = { theme = 'alice_rainy' } })
+-- lualine.nvim theme: Alice Sunny (Alice series)
+-- usage: require('lualine').setup({ options = { theme = 'alice-sunny' } })
 local c = {
-  bg1  = '#1f252a', bg2  = '#30363c',
-  fg1  = '#ccd2d7', ink  = '#eef2f6',
-  acc1 = '#56a0d1', acc2 = '#5b7f92', acc3 = '#a280cb',
-  red  = '#d19ab0', green = '#71c0a2', gold = '#bfa065', cyan = '#71b6c9',
+  bg1  = '#f0f8ff', bg2  = '#dae2e9',
+  fg1  = '#3b3b3b', ink  = '#1f2f3a',
+  acc1 = '#56a0d1', acc2 = '#5b7f92', acc3 = '#8868ae',
+  red  = '#C998AE', green = '#7FAD9C', gold = '#a57a2e', cyan = '#789eb1',
 }
 
 local function sect(mode_bg)
