@@ -81,6 +81,8 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | Rust 增强 |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器 |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 文件树 |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | 内置终端（浮动 / 水平 / 垂直） |
+| [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小 |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊查找（文件 / 文本 / 缓冲区等） |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Telescope 依赖库 |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | 顶部标签栏 |
@@ -107,9 +109,14 @@ Leader 键为 `空格`。
 | --- | --- |
 | `<C-Up>` / `<C-Down>` | 调整窗口高度 |
 | `<C-Left>` / `<C-Right>` | 调整窗口宽度 |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | 跳转到左 / 下 / 上 / 右分屏 |
+| `<M-h>` / `<M-j>` / `<M-k>` / `<M-l>` | 调整左 / 下 / 上 / 右分屏大小 |
 | `gn` / `gp` | 下一个 / 上一个 buffer |
 | `J` / `K`（可视模式） | 上下移动选中行 |
 | `<leader>e` | 打开 / 关闭文件树 |
+| `<leader>th` / `<leader>tv` | 水平 / 垂直终端 |
+| `<leader>tb` | 在新缓冲区打开终端 |
+| `<C-t>` | 切换终端（toggleterm 默认） |
 | `<leader>ff` | 查找文件 |
 | `<leader>fg` | 实时全文搜索 |
 | `<leader>fw` | 搜索光标下单词 |

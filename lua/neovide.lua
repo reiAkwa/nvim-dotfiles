@@ -1,3 +1,3 @@
 if vim.g.neovide then
-    vim.o.guifont = "Sarasa Nerd:h13"
+    vim.o.guifont = "BlexMono Nerd Font:h14"
 end
