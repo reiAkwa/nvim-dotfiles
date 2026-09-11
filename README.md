@@ -89,6 +89,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | 快速注释 |
 | [mini.pairs](https://github.com/echasnovski/mini.pairs) | 自动括号 / 引号补全 |
 | [nvim-notify](https://github.com/rcarriga/nvim-notify) | 通知消息美化 |
+| [fidget.nvim](https://github.com/j-hui/fidget.nvim) | LSP 进度提示 |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | 快捷键提示 |
 | [wilder.nvim](https://github.com/gelguy/wilder.nvim) | 命令模式补全 |
 | [mini.surround](https://github.com/nvim-mini/mini.surround) | 括号/引号替换 |
