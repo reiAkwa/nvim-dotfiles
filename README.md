@@ -87,6 +87,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | 状态栏 |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git 状态标记 |
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim) | 快速注释 |
+| [mini.pairs](https://github.com/echasnovski/mini.pairs) | 自动括号 / 引号补全 |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | 快捷键提示 |
 | [wilder.nvim](https://github.com/gelguy/wilder.nvim) | 命令模式补全 |
 
