@@ -24,8 +24,8 @@ require("blink.cmp").setup({
         ["<Tab>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
         -- Scroll documentation
-        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+        -- ["<C-]>"] = { "scroll_documentation_up", "fallback" },
+        -- ["<C-[>"] = { "scroll_documentation_down", "fallback" },
         -- Show/hide signature
         ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },

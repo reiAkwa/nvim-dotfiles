@@ -1,5 +1,5 @@
 vim.lsp.enable({
-    'ts_ls',
+    'vtsls',
     'clangd',
     'lua_ls',
 })

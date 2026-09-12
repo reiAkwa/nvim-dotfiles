@@ -3,7 +3,7 @@ vim.pack.add({
 })
 require("mason").setup({
     ensure_installed = {
-      'ts_ls',
+      'vtsls',
       'rust_analyzer',
       'clangd',
       'lua_ls'
