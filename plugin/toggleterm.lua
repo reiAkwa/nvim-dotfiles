@@ -10,6 +10,7 @@ require('toggleterm').setup({
   close_on_exit = true,
   shade_terminals = true,
   float_opts = { border = 'curved' },
+  shell = 'pwsh', -- [TODO] add cross platform support
 })
 
 local Terminal = require('toggleterm.terminal').Terminal
