@@ -6,7 +6,10 @@ require("mason").setup({
       'vtsls',
       'rust_analyzer',
       'clangd',
-      'lua_ls'
+      'lua_ls',
+      'ty',
+      'vue_ls',
+      'tailwindcss',
     },
     automatic_installation = true,
 
