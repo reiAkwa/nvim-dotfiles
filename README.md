@@ -96,6 +96,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [wilder.nvim](https://github.com/gelguy/wilder.nvim) | 命令模式补全 |
 | [mini.surround](https://github.com/nvim-mini/mini.surround) | 括号/引号替换 |
 | [mini.bufremove](https://github.com/nvim-mini/mini.bufremove) | 智能关闭缓冲区 |
+| [hop.nvim](https://github.com/smoka7/hop.nvim) | 光标快速跳转 |
 
 ## 语言服务
 
@@ -130,6 +131,8 @@ Leader 键为 `空格`。
 | `sr` | 替换包围符号 |
 | `sf` / `sF` | 查找右侧 / 左侧包围符号 |
 | `sh` | 高亮包围符号 |
+| `<leader>hw` / `<leader>hl` | 跳转到单词 / 行 |
+| `<leader>hc` / `<leader>hj` | 跳转到字符 / 行首 |
 | `<leader>a`（Rust） | 代码操作 |
 | `gd` / `gD` | 跳转定义 / 声明 |
 | `gi` / `go` | 实现 / 类型定义 |
