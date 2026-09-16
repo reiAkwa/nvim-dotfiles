@@ -21,7 +21,7 @@ end
 local T = {
   normal   = sect(c.acc1),
   insert   = sect(c.red),
-  visual   = sect(c.green),
+  visual   = sect(c.acc3),
   replace  = sect(c.red),
   command  = sect(c.cyan),
   terminal = sect(c.cyan),
