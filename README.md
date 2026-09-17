@@ -2,6 +2,10 @@
 
 基于 Neovim 0.12+ 原生插件管理器 `vim.pack` 的轻量配置，无 lazy.nvim 等第三方包管理器。
 
+## 截图
+
+![screenshot](./assets/screenshot.png)
+
 ## 环境要求
 
 - **Neovim >= 0.12**（`vim.pack` 从 0.12 开始提供）
@@ -73,30 +77,30 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 ## 插件
 
-| 插件 | 用途 |
-| --- | --- |
-| [blink.cmp](https://github.com/saghen/blink.cmp) | 补全（LSP / path / snippet / buffer） |
-| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP 配置 |
-| [mason.nvim](https://github.com/mason-org/mason.nvim) | LSP server 安装管理 |
-| [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) | Rust 增强 |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器 |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 文件树 |
-| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | 内置终端（浮动 / 水平 / 垂直） |
-| [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小 |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊查找（文件 / 文本 / 缓冲区等） |
-| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Telescope 依赖库 |
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) | 顶部标签栏 |
-| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | 状态栏 |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git 状态标记 |
-| [Comment.nvim](https://github.com/numToStr/Comment.nvim) | 快速注释 |
-| [mini.pairs](https://github.com/echasnovski/mini.pairs) | 自动括号 / 引号补全 |
-| [nvim-notify](https://github.com/rcarriga/nvim-notify) | 通知消息美化 |
-| [fidget.nvim](https://github.com/j-hui/fidget.nvim) | LSP 进度提示 |
-| [which-key.nvim](https://github.com/folke/which-key.nvim) | 快捷键提示 |
-| [wilder.nvim](https://github.com/gelguy/wilder.nvim) | 命令模式补全 |
-| [mini.surround](https://github.com/nvim-mini/mini.surround) | 括号/引号替换 |
-| [mini.bufremove](https://github.com/nvim-mini/mini.bufremove) | 智能关闭缓冲区 |
-| [hop.nvim](https://github.com/smoka7/hop.nvim) | 光标快速跳转 |
+| 插件                                                                 | 用途                                  |
+| -------------------------------------------------------------------- | ------------------------------------- |
+| [blink.cmp](https://github.com/saghen/blink.cmp)                      | 补全（LSP / path / snippet / buffer） |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | LSP 配置                              |
+| [mason.nvim](https://github.com/mason-org/mason.nvim)                 | LSP server 安装管理                   |
+| [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)                | Rust 增强                             |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)           | 文件树                                |
+| [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)         | 内置终端（浮动 / 水平 / 垂直）        |
+| [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小                    |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | 模糊查找（文件 / 文本 / 缓冲区等）    |
+| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)              | Telescope 依赖库                      |
+| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)         | 顶部标签栏                            |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | 状态栏                                |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | Git 状态标记                          |
+| [Comment.nvim](https://github.com/numToStr/Comment.nvim)              | 快速注释                              |
+| [mini.pairs](https://github.com/echasnovski/mini.pairs)               | 自动括号 / 引号补全                   |
+| [nvim-notify](https://github.com/rcarriga/nvim-notify)                | 通知消息美化                          |
+| [fidget.nvim](https://github.com/j-hui/fidget.nvim)                   | LSP 进度提示                          |
+| [which-key.nvim](https://github.com/folke/which-key.nvim)             | 快捷键提示                            |
+| [wilder.nvim](https://github.com/gelguy/wilder.nvim)                  | 命令模式补全                          |
+| [mini.surround](https://github.com/nvim-mini/mini.surround)           | 括号/引号替换                         |
+| [mini.bufremove](https://github.com/nvim-mini/mini.bufremove)         | 智能关闭缓冲区                        |
+| [hop.nvim](https://github.com/smoka7/hop.nvim)                        | 光标快速跳转                          |
 
 ## 语言服务
 
@@ -106,38 +110,38 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 Leader 键为 `空格`。
 
-| 快捷键 | 功能 |
-| --- | --- |
-| `<C-Up>` / `<C-Down>` | 调整窗口高度 |
-| `<C-Left>` / `<C-Right>` | 调整窗口宽度 |
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | 跳转到左 / 下 / 上 / 右分屏 |
+| 快捷键                                        | 功能                          |
+| --------------------------------------------- | ----------------------------- |
+| `<C-Up>` / `<C-Down>`                     | 调整窗口高度                  |
+| `<C-Left>` / `<C-Right>`                  | 调整窗口宽度                  |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | 跳转到左 / 下 / 上 / 右分屏   |
 | `<M-h>` / `<M-j>` / `<M-k>` / `<M-l>` | 调整左 / 下 / 上 / 右分屏大小 |
-| `gn` / `gp` | 下一个 / 上一个 buffer |
-| `J` / `K`（可视模式） | 上下移动选中行 |
-| `<leader>e` | 打开 / 关闭文件树 |
-| `<leader>th` / `<leader>tv` | 水平 / 垂直终端 |
-| `<leader>tb` | 在新缓冲区打开终端 |
-| `<C-t>` | 切换终端（toggleterm 默认） |
-| `<leader>ff` | 查找文件 |
-| `<leader>fg` | 实时全文搜索 |
-| `<leader>fw` | 搜索光标下单词 |
-| `<leader>fb` | 切换缓冲区 |
-| `<leader>fh` | 搜索帮助文档 |
-| `<leader>fr` | 最近打开的文件 |
-| `<leader>fd` | 搜索诊断信息 |
-| `<leader>bd` / `<leader>bw` | 关闭 / 彻底关闭当前缓冲区 |
-| `sa` | 添加包围符号（括号 / 引号等） |
-| `sd` | 删除包围符号 |
-| `sr` | 替换包围符号 |
-| `sf` / `sF` | 查找右侧 / 左侧包围符号 |
-| `sh` | 高亮包围符号 |
-| `<leader>hw` / `<leader>hl` | 跳转到单词 / 行 |
-| `<leader>hc` / `<leader>hj` | 跳转到字符 / 行首 |
-| `<leader>a`（Rust） | 代码操作 |
-| `gd` / `gD` | 跳转定义 / 声明 |
-| `gi` / `go` | 实现 / 类型定义 |
-| `K` | 悬停文档（Rust 下含操作） |
-| `gl` | 显示诊断浮窗 |
+| `gn` / `gp`                               | 下一个 / 上一个 buffer        |
+| `J` / `K`（可视模式）                     | 上下移动选中行                |
+| `<leader>e`                                 | 打开 / 关闭文件树             |
+| `<leader>th` / `<leader>tv`               | 水平 / 垂直终端               |
+| `<leader>tb`                                | 在新缓冲区打开终端            |
+| `<C-t>`                                     | 切换终端（toggleterm 默认）   |
+| `<leader>ff`                                | 查找文件                      |
+| `<leader>fg`                                | 实时全文搜索                  |
+| `<leader>fw`                                | 搜索光标下单词                |
+| `<leader>fb`                                | 切换缓冲区                    |
+| `<leader>fh`                                | 搜索帮助文档                  |
+| `<leader>fr`                                | 最近打开的文件                |
+| `<leader>fd`                                | 搜索诊断信息                  |
+| `<leader>bd` / `<leader>bw`               | 关闭 / 彻底关闭当前缓冲区     |
+| `sa`                                        | 添加包围符号（括号 / 引号等） |
+| `sd`                                        | 删除包围符号                  |
+| `sr`                                        | 替换包围符号                  |
+| `sf` / `sF`                               | 查找右侧 / 左侧包围符号       |
+| `sh`                                        | 高亮包围符号                  |
+| `<leader>hw` / `<leader>hl`               | 跳转到单词 / 行               |
+| `<leader>hc` / `<leader>hj`               | 跳转到字符 / 行首             |
+| `<leader>a`（Rust）                         | 代码操作                      |
+| `gd` / `gD`                               | 跳转定义 / 声明               |
+| `gi` / `go`                               | 实现 / 类型定义               |
+| `K`                                         | 悬停文档（Rust 下含操作）     |
+| `gl`                                        | 显示诊断浮窗                  |
 
 ## 配色
 
