@@ -82,6 +82,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [blink.cmp](https://github.com/saghen/blink.cmp)                      | 补全（LSP / path / snippet / buffer） |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | LSP 配置                              |
 | [mason.nvim](https://github.com/mason-org/mason.nvim)                 | LSP server 安装管理                   |
+| [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)  | 自动安装并启用 LSP server             |
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)                | Rust 增强                             |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)           | 文件树                                |
@@ -104,7 +105,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 ## 语言服务
 
-`lua/lspconfig.lua` 通过 `vim.lsp.enable` 启用：`ts_ls`、`clangd`、`lua_ls`；Rust 由 rustaceanvim 提供。`mason` 会在启动时确保安装 `ts_ls`、`rust_analyzer`、`clangd`、`lua_ls`。
+`lua/lspconfig.lua` 通过 `vim.lsp.enable` 启用：`vtsls`、`clangd`、`lua_ls`、`ty`、`vue_ls`、`tailwindcss`；Rust 由 rustaceanvim 提供。
 
 ## 快捷键
 
