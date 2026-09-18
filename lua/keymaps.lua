@@ -12,8 +12,6 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 vim.keymap.set('n', 'gn', ':bnext<CR>')
 vim.keymap.set('n', 'gp', ':bprevious<CR>')
 
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 

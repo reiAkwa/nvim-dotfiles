@@ -93,14 +93,19 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)         | 顶部标签栏                            |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | 状态栏                                |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | Git 状态标记                          |
-| [Comment.nvim](https://github.com/numToStr/Comment.nvim)              | 快速注释                              |
+| [mini.comment](https://github.com/nvim-mini/mini.comment)             | 快速注释                              |
 | [mini.pairs](https://github.com/echasnovski/mini.pairs)               | 自动括号 / 引号补全                   |
-| [nvim-notify](https://github.com/rcarriga/nvim-notify)                | 通知消息美化                          |
-| [fidget.nvim](https://github.com/j-hui/fidget.nvim)                   | LSP 进度提示                          |
+| [mini.notify](https://github.com/nvim-mini/mini.notify)               | 通知消息美化 + LSP 进度提示           |
 | [which-key.nvim](https://github.com/folke/which-key.nvim)             | 快捷键提示                            |
 | [wilder.nvim](https://github.com/gelguy/wilder.nvim)                  | 命令模式补全                          |
 | [mini.surround](https://github.com/nvim-mini/mini.surround)           | 括号/引号替换                         |
 | [mini.bufremove](https://github.com/nvim-mini/mini.bufremove)         | 智能关闭缓冲区                        |
+| [mini.icons](https://github.com/nvim-mini/mini.icons)                 | 文件类型图标（兼容 devicons API）     |
+| [mini.ai](https://github.com/nvim-mini/mini.ai)                       | 增强文本对象                          |
+| [mini.move](https://github.com/nvim-mini/mini.move)                   | 移动行 / 选区                         |
+| [mini.operators](https://github.com/nvim-mini/mini.operators)         | 交换 / 复制 / 排序等操作符            |
+| [mini.sessions](https://github.com/nvim-mini/mini.sessions)           | 会话管理                              |
+| [mini.bracketed](https://github.com/nvim-mini/mini.bracketed)         | `[` / `]` 系列跳转                    |
 | [hop.nvim](https://github.com/smoka7/hop.nvim)                        | 光标快速跳转                          |
 
 ## 语言服务
@@ -118,7 +123,6 @@ Leader 键为 `空格`。
 | `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | 跳转到左 / 下 / 上 / 右分屏   |
 | `<M-h>` / `<M-j>` / `<M-k>` / `<M-l>` | 调整左 / 下 / 上 / 右分屏大小 |
 | `gn` / `gp`                               | 下一个 / 上一个 buffer        |
-| `J` / `K`（可视模式）                     | 上下移动选中行                |
 | `<leader>e`                                 | 打开 / 关闭文件树             |
 | `<leader>th` / `<leader>tv`               | 水平 / 垂直终端               |
 | `<leader>tb`                                | 在新缓冲区打开终端            |
@@ -136,6 +140,14 @@ Leader 键为 `空格`。
 | `sr`                                        | 替换包围符号                  |
 | `sf` / `sF`                               | 查找右侧 / 左侧包围符号       |
 | `sh`                                        | 高亮包围符号                  |
+| `gc` / `gcc`（可视 / 普通）                | 注释 / 取消注释               |
+| `<M-h>` / `<M-l>` / `<M-j>` / `<M-k>`（可视） | 移动选中内容                 |
+| `<M-Left>` / `<M-Right>` / `<M-Down>` / `<M-Up>` | 移动当前行               |
+| `an` / `in` / `al` / `il`                 | 下一个 / 上一个文本对象       |
+| `g[` / `g]`                               | 跳转到文本对象边界            |
+| `gx` / `gm` / `gs` / `gR` / `g=`         | 交换 / 复制 / 排序 / 替换 / 求值 |
+| `<leader>ss` / `<leader>sl` / `<leader>sd` | 保存 / 加载 / 删除会话       |
+| `[` / `]` + 字母                          | 各类跳转（buffer / 诊断 / 缩进等） |
 | `<leader>hw` / `<leader>hl`               | 跳转到单词 / 行               |
 | `<leader>hc` / `<leader>hj`               | 跳转到字符 / 行首             |
 | `<leader>a`（Rust）                         | 代码操作                      |
