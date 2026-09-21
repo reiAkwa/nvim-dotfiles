@@ -36,12 +36,12 @@ require('lualine').setup {
     }
   },
   sections = {
-    lualine_a = { {'mode', separator = { left = '' } } },
+    lualine_a = { 'mode' },
     lualine_b = {'filename'},
     lualine_c = {'branch', 'diff'},
     lualine_x = {'diagnostics'},
     lualine_y = {'lsp_status', 'filetype', },
-    lualine_z = { { 'progress', separator = { left = '' }}, { 'location', separator = { right = '' } } }
+    lualine_z = { { 'progress', separator = { left = '' }}, 'location' }
   },
   inactive_sections = {
     lualine_a = {},
