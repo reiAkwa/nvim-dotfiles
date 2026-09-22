@@ -85,6 +85,8 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)  | 自动安装并启用 LSP server             |
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)                | Rust 增强                             |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
+| [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | 语法感知文本对象 |
+| [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | 顶部显示当前代码上下文 |
 | [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)           | 文件树                                |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)         | 内置终端（浮动 / 水平 / 垂直）        |
 | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小                    |
@@ -144,6 +146,8 @@ Leader 键为 `空格`。
 | `<M-h>` / `<M-l>` / `<M-j>` / `<M-k>`（可视） | 移动选中内容                 |
 | `<M-Left>` / `<M-Right>` / `<M-Down>` / `<M-Up>` | 移动当前行               |
 | `an` / `in` / `al` / `il`                 | 下一个 / 上一个文本对象       |
+| `am` / `im` / `ac` / `ic`                 | 选择函数 / 类（外 / 内）      |
+| `]m` / `[m` / `]M` / `[M`               | 下一个 / 上一个函数开头 / 结尾 |
 | `g[` / `g]`                               | 跳转到文本对象边界            |
 | `gx` / `gm` / `gs` / `gR` / `g=`         | 交换 / 复制 / 排序 / 替换 / 求值 |
 | `<leader>ss` / `<leader>sl` / `<leader>sd` | 保存 / 加载 / 删除会话       |
