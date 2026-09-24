@@ -13,7 +13,7 @@ vim.keymap.set('n', 'gn', ':bnext<CR>')
 vim.keymap.set('n', 'gp', ':bprevious<CR>')
 
 
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = '打开 / 关闭文件树' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)

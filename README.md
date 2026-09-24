@@ -87,11 +87,12 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | 语法感知文本对象 |
 | [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | 顶部显示当前代码上下文 |
-| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)           | 文件树                                |
+| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)       | 文件树（移动 / 复制 / 重命名 / 删除） |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)         | 内置终端（浮动 / 水平 / 垂直）        |
 | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小                    |
 | [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | 模糊查找（文件 / 文本 / 缓冲区等）    |
 | [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)              | Telescope 依赖库                      |
+| [nui.nvim](https://github.com/MunifTanjim/nui.nvim)                   | neo-tree 依赖库                       |
 | [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)         | 顶部标签栏                            |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | 状态栏                                |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | Git 状态标记                          |

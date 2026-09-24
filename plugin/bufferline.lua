@@ -8,7 +8,7 @@ require('bufferline').setup({
     
     offsets = {
         {
-          filetype = "NvimTree",
+          filetype = "neo-tree",
           text = "",
           padding = 1,
         },
