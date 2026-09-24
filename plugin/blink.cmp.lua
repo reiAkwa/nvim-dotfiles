@@ -3,6 +3,7 @@ vim.pack.add({
 })
 
 require("blink.cmp").setup({
+    cmdline = { enabled = false },
     -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
     -- 'super-tab' for mappings similar to vscode (tab to accept)
     -- 'enter' for enter to accept
