@@ -14,7 +14,9 @@
 可选（用于更完整的体验）：
 
 - `ripgrep`（`rg`）— 快速搜索
-- `tree-sitter` CLI + C 编译器 — 编译 Tree-sitter 解析器
+- `tree-sitter` CLI（>= 0.26.1）+ C 编译器 — 编译 Tree-sitter 解析器；缺失时只能用 Neovim 内置的 c / lua / vim / vimdoc / query / markdown 解析器
+  - Arch：`sudo pacman -S tree-sitter-cli`；其他平台：`npm i -g tree-sitter-cli` 或 `cargo install tree-sitter-cli`
+  - **WSL 注意**：WSL 会继承 Windows 的 PATH，若只在 Windows 侧装过 npm 全局包，命中的会是 `/mnt/c/...` 下的 shim（目录里只有 `tree-sitter.exe`），在 Linux 里无法用来编译。必须在 WSL 内装一份原生 CLI；`plugin/nvim-treesitter.lua` 会检测这种情况并跳过安装，同时给出提示
 - Nerd Font（如 Sarasa Nerd Font）— 图标与 Neovide 字体
 
 ## 安装
@@ -65,10 +67,11 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 ├── lua/
 │   ├── options.lua           # 编辑器选项
 │   ├── keymaps.lua           # 全局与 LSP 快捷键
-│   ├── lspconfig.lua         # vim.lsp.enable 启用的语言服务
+│   ├── lsp.lua               # 启用的语言服务清单（唯一事实来源）
 │   ├── neovide.lua           # Neovide 专用配置
 │   └── lualine/themes/       # 自定义 lualine 主题
 ├── plugin/                   # 启动时自动加载，声明并配置各插件
+├── lsp/                      # 单个语言服务的细粒度配置（按服务名加载）
 ├── colors/                   # alice 系列配色
 ├── install.sh                # Unix / Git Bash 安装脚本
 ├── install.ps1               # Windows PowerShell 安装脚本
@@ -79,11 +82,14 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 | 插件                                                                 | 用途                                  |
 | -------------------------------------------------------------------- | ------------------------------------- |
-| [blink.cmp](https://github.com/saghen/blink.cmp)                      | 补全（LSP / path / snippet / buffer） |
+| [blink.cmp](https://github.com/saghen/blink.cmp)                      | 补全（LSP / path / snippet / buffer / 命令行） |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)            | LSP 配置                              |
 | [mason.nvim](https://github.com/mason-org/mason.nvim)                 | LSP server 安装管理                   |
 | [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)  | 自动安装并启用 LSP server             |
 | [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)                | Rust 增强                             |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                  | 调试（DAP 客户端，适配器用 CodeLLDB） |
+| [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)                | 调试界面                              |
+| [nvim-nio](https://github.com/nvim-neotest/nvim-nio)                  | nvim-dap-ui 依赖库                    |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | 语法感知文本对象 |
 | [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | 顶部显示当前代码上下文 |
@@ -97,10 +103,10 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | 状态栏                                |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | Git 状态标记                          |
 | [mini.comment](https://github.com/nvim-mini/mini.comment)             | 快速注释                              |
+| [mini.indentscope](https://github.com/nvim-mini/mini.indentscope)     | 缩进范围指示                          |
 | [mini.pairs](https://github.com/echasnovski/mini.pairs)               | 自动括号 / 引号补全                   |
 | [mini.notify](https://github.com/nvim-mini/mini.notify)               | 通知消息美化 + LSP 进度提示           |
 | [which-key.nvim](https://github.com/folke/which-key.nvim)             | 快捷键提示                            |
-| [wilder.nvim](https://github.com/gelguy/wilder.nvim)                  | 命令模式补全                          |
 | [mini.surround](https://github.com/nvim-mini/mini.surround)           | 括号/引号替换                         |
 | [mini.bufremove](https://github.com/nvim-mini/mini.bufremove)         | 智能关闭缓冲区                        |
 | [mini.icons](https://github.com/nvim-mini/mini.icons)                 | 文件类型图标（兼容 devicons API）     |
@@ -113,7 +119,20 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 ## 语言服务
 
-`lua/lspconfig.lua` 通过 `vim.lsp.enable` 启用：`vtsls`、`clangd`、`lua_ls`、`ty`、`vue_ls`、`tailwindcss`；Rust 由 rustaceanvim 提供。
+`lua/lsp.lua` 通过 `vim.lsp.enable` 启用：`vtsls`、`clangd`、`lua_ls`、`ty`、`vue_ls`、`tailwindcss`。
+
+- 这份清单同时也是 `mason-lspconfig` 的 `ensure_installed`，只需维护一处；
+- `automatic_enable` 已关闭，避免 mason 把所有已安装的服务都隐式打开；
+- Rust 由 rustaceanvim 提供，rust-analyzer 建议用 `rustup component add rust-analyzer` 安装；
+- 单个服务的细粒度配置放在 `lsp/<服务名>.lua`（例如 `lsp/lua_ls.lua`），会与 nvim-lspconfig 自带的同名配置合并。
+
+## 调试
+
+`nvim-dap` + `nvim-dap-ui`，适配器为 [CodeLLDB](https://github.com/vadimcn/codelldb)，由 mason 管理（缺失时首次启动会自动安装，装完重启 Nvim 生效）。
+
+- `c` / `cpp` / `rust` / `zig` 已配好 `launch` 配置：`<leader>dc` 后按提示输入可执行文件路径；
+- 也可用 `<leader>dl` 重复上一次调试、`<leader>du` 打开调试面板；
+- 若 `<leader>dc` 报找不到适配器，先 `:checkhealth` 确认 codelldb 是否安装完成。
 
 ## 快捷键
 
@@ -160,13 +179,18 @@ Leader 键为 `空格`。
 | `gi` / `go`                               | 实现 / 类型定义               |
 | `K`                                         | 悬停文档（Rust 下含操作）     |
 | `gl`                                        | 显示诊断浮窗                  |
+| `<leader>db` / `<leader>dB`               | 切换断点 / 条件断点           |
+| `<leader>dc` / `<leader>dt`               | 继续（启动）/ 终止调试        |
+| `<leader>di` / `<leader>do` / `<leader>dO` | 步入 / 步过 / 步出            |
+| `<leader>dr` / `<leader>dl`               | 调试 REPL / 重复上次调试      |
+| `<leader>du` / `<leader>de`               | 切换调试面板 / 求值           |
 
 ## 配色
 
-内置 alice 系列，默认 `alice_sunny`（在 `init.lua` 中切换）：
+内置 alice 系列，默认 `alice-sunny`（在 `init.lua` 中切换）：
 
-- `alice_sunny`
-- `alice_nightly`
-- `alice_rainy`
+- `alice-sunny`
+- `alice-nightly`
+- `alice-rainy`
 
 `lua/lualine/themes/` 下有对应的 lualine 主题。
