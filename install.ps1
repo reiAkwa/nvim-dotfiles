@@ -58,8 +58,12 @@ if ($same) {
     }
 
     if (-not $linked) {
-        Copy-Item -LiteralPath $Repo -Destination $Target -Recurse -Force
-        Write-Ok "copied $Repo -> $Target"
+        # 与 install.sh 一致：跳过 .git
+        New-Item -ItemType Directory -Path $Target -Force | Out-Null
+        Get-ChildItem -LiteralPath $Repo -Force | Where-Object { $_.Name -ne '.git' } | ForEach-Object {
+            Copy-Item -LiteralPath $_.FullName -Destination $Target -Recurse -Force
+        }
+        Write-Ok "copied $Repo -> $Target (skipped .git)"
     }
 }
 
