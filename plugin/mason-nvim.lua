@@ -12,17 +12,6 @@ require("mason").setup({
     },
 })
 require("mason-lspconfig").setup({
-    ensure_installed = {
-      'vtsls',
-      'rust_analyzer',
-      'clangd',
-      'lua_ls',
-      'ty',
-      'vue_ls',
-      'tailwindcss',
-    },
-    automatic_installation = true,
-    automatic_enable = {
-      exclude = { "rust_analyzer" },
-    },
+    ensure_installed = vim.deepcopy(require('lsp')), -- 与 lua/lsp.lua 共用清单
+    automatic_enable = false,                        -- 启用交给 lua/lsp.lua
 })

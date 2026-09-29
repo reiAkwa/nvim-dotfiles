@@ -1,6 +1,6 @@
 require('options')
 require('keymaps')
-require('lspconfig')
+require('lsp')
 require('neovide')
 
 vim.cmd("colorscheme alice-sunny")
