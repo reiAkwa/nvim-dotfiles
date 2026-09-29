@@ -67,7 +67,7 @@
     },
     "mini.pairs": {
       "rev": "b1c5a726921b7a8c9321e9a7a208aa0571de5810",
-      "src": "https://github.com/echasnovski/mini.pairs"
+      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.sessions": {
       "rev": "59b682b3208eefb5053a80dd3bc93ced69f363af",
