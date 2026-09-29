@@ -4,13 +4,41 @@ vim.pack.add({
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
 })
 
-require('nvim-treesitter').setup()
+local ts = require('nvim-treesitter')
+ts.setup()
 
-if vim.fn.executable('tree-sitter') == 1 then
-  require('nvim-treesitter').install({
-    'c', 'cpp', 'lua', 'vim', 'vimdoc', 'query',
-    'javascript', 'typescript', 'tsx', 'rust',
-  })
+-- 上游只调用裸命令名 tree-sitter，这里先确认 PATH 里那份在当前平台可用
+local function find_ts_cli()
+  if vim.fn.executable('tree-sitter') == 0 then
+    return nil
+  end
+  local exe = vim.fn.exepath('tree-sitter')
+  if not vim.fn.has('win32') and exe:match('^/mnt/') then
+    return nil, ('解析到的是 Windows 侧的 %s，在 Linux 下无法用于编译'):format(exe)
+  end
+  return exe
+end
+
+local ts_languages = {
+  'c', 'cpp', 'lua', 'vim', 'vimdoc', 'query',
+  'javascript', 'typescript', 'tsx', 'rust',
+}
+
+local cli, reason = find_ts_cli()
+if cli then
+  ts.install(ts_languages)
+elseif reason then
+  vim.schedule(function()
+    vim.notify(
+      ('[nvim-treesitter] %s，已跳过解析器安装\n%s\n%s\n%s'):format(
+        reason,
+        '在 WSL/Linux 内安装原生 CLI：',
+        '  Arch: sudo pacman -S tree-sitter-cli',
+        '  其他: npm i -g tree-sitter-cli 或 cargo install tree-sitter-cli'
+      ),
+      vim.log.levels.WARN
+    )
+  end)
 end
 
 vim.api.nvim_create_autocmd('FileType', {
