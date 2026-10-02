@@ -15,6 +15,8 @@ vim.keymap.set('n', 'gp', ':bprevious<CR>')
 
 vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = '打开 / 关闭文件树' })
 
+vim.keymap.set('n', '<leader>m', '<Cmd>lua require("neominimap.api").toggle()<CR>', { desc = '打开 / 关闭 minimap' })
+
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)

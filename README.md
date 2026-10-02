@@ -116,6 +116,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [mini.sessions](https://github.com/nvim-mini/mini.sessions)           | 会话管理                              |
 | [mini.bracketed](https://github.com/nvim-mini/mini.bracketed)         | `[` / `]` 系列跳转                    |
 | [hop.nvim](https://github.com/smoka7/hop.nvim)                        | 光标快速跳转                          |
+| [neominimap.nvim](https://github.com/Isrothy/neominimap.nvim)         | 缩略图                                |
 
 ## 语言服务
 
