@@ -68,8 +68,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 │   ├── options.lua           # 编辑器选项
 │   ├── keymaps.lua           # 全局与 LSP 快捷键
 │   ├── lsp.lua               # 启用的语言服务清单（唯一事实来源）
-│   ├── neovide.lua           # Neovide 专用配置
-│   └── lualine/themes/       # 自定义 lualine 主题
+│   └── neovide.lua           # Neovide 专用配置
 ├── plugin/                   # 启动时自动加载，声明并配置各插件
 ├── lsp/                      # 单个语言服务的细粒度配置（按服务名加载）
 ├── colors/                   # alice 系列配色
@@ -93,20 +92,18 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 语法高亮与解析器                      |
 | [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects) | 语法感知文本对象 |
 | [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) | 顶部显示当前代码上下文 |
-| [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)       | 文件树（移动 / 复制 / 重命名 / 删除） |
+| [mini.files](https://github.com/nvim-mini/mini.files)                 | 文件树 / 文件管理                     |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)         | 内置终端（浮动 / 水平 / 垂直）        |
 | [smart-splits.nvim](https://github.com/mrjones2014/smart-splits.nvim) | 分屏跳转与调整大小                    |
-| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)    | 模糊查找（文件 / 文本 / 缓冲区等）    |
-| [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)              | Telescope 依赖库                      |
-| [nui.nvim](https://github.com/MunifTanjim/nui.nvim)                   | neo-tree 依赖库                       |
-| [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)         | 顶部标签栏                            |
-| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)          | 状态栏                                |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)           | Git 状态标记                          |
+| [mini.pick](https://github.com/nvim-mini/mini.pick)                   | 模糊查找（文件 / 文本 / 缓冲区等）    |
+| [mini.diff](https://github.com/nvim-mini/mini.diff)                   | Git 改动标记 / hunk 跳转              |
+| [mini.statusline](https://github.com/nvim-mini/mini.statusline)       | 状态栏                                |
+| [mini.tabline](https://github.com/nvim-mini/mini.tabline)             | 顶部标签栏                            |
 | [mini.comment](https://github.com/nvim-mini/mini.comment)             | 快速注释                              |
 | [mini.indentscope](https://github.com/nvim-mini/mini.indentscope)     | 缩进范围指示                          |
 | [mini.pairs](https://github.com/echasnovski/mini.pairs)               | 自动括号 / 引号补全                   |
 | [mini.notify](https://github.com/nvim-mini/mini.notify)               | 通知消息美化 + LSP 进度提示           |
-| [which-key.nvim](https://github.com/folke/which-key.nvim)             | 快捷键提示                            |
+| [mini.clue](https://github.com/nvim-mini/mini.clue)                   | 快捷键提示                            |
 | [mini.surround](https://github.com/nvim-mini/mini.surround)           | 括号/引号替换                         |
 | [mini.bufremove](https://github.com/nvim-mini/mini.bufremove)         | 智能关闭缓冲区                        |
 | [mini.icons](https://github.com/nvim-mini/mini.icons)                 | 文件类型图标（兼容 devicons API）     |
@@ -115,7 +112,7 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 | [mini.operators](https://github.com/nvim-mini/mini.operators)         | 交换 / 复制 / 排序等操作符            |
 | [mini.sessions](https://github.com/nvim-mini/mini.sessions)           | 会话管理                              |
 | [mini.bracketed](https://github.com/nvim-mini/mini.bracketed)         | `[` / `]` 系列跳转                    |
-| [hop.nvim](https://github.com/smoka7/hop.nvim)                        | 光标快速跳转                          |
+| [mini.jump2d](https://github.com/nvim-mini/mini.jump2d)               | 光标快速跳转                          |
 | [neominimap.nvim](https://github.com/Isrothy/neominimap.nvim)         | 缩略图                                |
 
 ## 语言服务
@@ -194,4 +191,4 @@ Leader 键为 `空格`。
 - `alice-nightly`
 - `alice-rainy`
 
-`lua/lualine/themes/` 下有对应的 lualine 主题。
+状态栏、标签栏、Git 改动标记的配色分别由各主题中的 `MiniStatusline*`、`MiniTabline*`、`MiniDiff*` 高亮组提供。

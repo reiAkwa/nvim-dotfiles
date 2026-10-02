@@ -3,4 +3,4 @@ require('keymaps')
 require('lsp')
 require('neovide')
 
-vim.cmd("colorscheme alice-sunny")
+vim.cmd([[colorscheme alice-sunny]])

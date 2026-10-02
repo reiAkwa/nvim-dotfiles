@@ -12,9 +12,6 @@
 ### lsp/
 存放单个语言服务的细粒度配置，文件名即服务名（`lsp/<server>.lua`），会与 nvim-lspconfig 自带的同名配置合并；目前只有 lua_ls.lua
 
-### lua/lualine
-为 lualine 适配自定义主题
-
 ### lua/keymaps.lua
 键位设置
 
@@ -31,6 +28,7 @@
 
 ### plugin/
 所有的插件配置都应集中于此（一个插件一个文件）。
+例外：所有 mini.nvim 插件统一集中在 plugin/mini.lua。
 调试相关配置在 plugin/nvim-dap.lua，适配器 CodeLLDB 由 mason 管理。
 
 ### install.{ps1,sh}

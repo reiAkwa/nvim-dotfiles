@@ -13,7 +13,14 @@ vim.keymap.set('n', 'gn', ':bnext<CR>')
 vim.keymap.set('n', 'gp', ':bprevious<CR>')
 
 
-vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = '打开 / 关闭文件树' })
+vim.keymap.set('n', '<leader>e', function()
+  local files = require('mini.files')
+  if not files.close() then
+    local bufname = vim.api.nvim_buf_get_name(0)
+    local path = vim.fn.filereadable(bufname) == 1 and bufname or vim.fn.getcwd()
+    files.open(path)
+  end
+end, { desc = '打开 / 关闭文件树' })
 
 vim.keymap.set('n', '<leader>m', '<Cmd>lua require("neominimap.api").toggle()<CR>', { desc = '打开 / 关闭 minimap' })
 
@@ -32,6 +39,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'gl', vim.diagnostic.open_float, bufopts)
+
+    -- 让 mini.clue 的触发器保持最新（LSP 会新建 g 开头的 buffer-local 映射）
+    if _G.MiniClue ~= nil then pcall(MiniClue.ensure_buf_triggers, bufnr) end
   end,
 })
 
