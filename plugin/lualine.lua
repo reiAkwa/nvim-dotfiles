@@ -41,7 +41,7 @@ require('lualine').setup {
     lualine_c = {'branch', 'diff'},
     lualine_x = {'diagnostics'},
     lualine_y = {'lsp_status', 'filetype', },
-    lualine_z = { { 'progress', separator = { left = '' }}, 'location' }
+    lualine_z = { 'progress', 'location' }
   },
   inactive_sections = {
     lualine_a = {},
