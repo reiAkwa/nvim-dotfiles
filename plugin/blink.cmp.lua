@@ -5,7 +5,11 @@ vim.pack.add({
 require("blink.cmp").setup({
     cmdline = {
         enabled = true,
-        keymap = { preset = 'cmdline' },
+        keymap = {
+            preset = 'cmdline',
+            ['<Up>'] = { 'select_prev', 'fallback' },
+            ['<Down>'] = { 'select_next', 'fallback' },
+        },
         sources = { 'buffer', 'cmdline', 'path' },
         -- 默认只在 cmdwin 弹菜单，打开后输入即提示
         completion = { menu = { auto_show = true } },
