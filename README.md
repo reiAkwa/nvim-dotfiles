@@ -59,6 +59,18 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 首次打开 `nvim` 时，`vim.pack` 会自动拉取插件；之后可用 `:checkhealth` 检查状态。
 
+## 个人配置
+
+Neovide 字体、LSP 服务清单与覆盖、Tree-sitter 语言列表等用户特定内容放在 **不被 git 跟踪** 的 `lua/local.lua`：
+
+```sh
+cp lua/local.example.lua lua/local.lua
+```
+
+- 该文件已在 `.gitignore` 中忽略，可以放心按自己的环境修改；
+- 它不存在时配置仍可正常启动：不设置 Neovide 字体、LSP 只启用 `lua_ls`、Tree-sitter 只用内置解析器；
+- 支持的字段见 `lua/local.example.lua` 中的注释。
+
 ## 目录结构
 
 ```
@@ -67,7 +79,9 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 ├── lua/
 │   ├── options.lua           # 编辑器选项
 │   ├── keymaps.lua           # 全局与 LSP 快捷键
-│   ├── lsp.lua               # 启用的语言服务清单（唯一事实来源）
+│   ├── lsp.lua               # 启用 LSP 的入口（清单来自 local.lua）
+│   ├── local.example.lua     # 个人配置模板
+│   ├── local.lua             # 个人配置（不被 git 跟踪）
 │   └── neovide.lua           # Neovide 专用配置
 ├── plugin/                   # 启动时自动加载，声明并配置各插件
 ├── lsp/                      # 单个语言服务的细粒度配置（按服务名加载）
@@ -117,12 +131,12 @@ git clone https://github.com/reiAkwa/nvim-dotfiles.git "${XDG_CONFIG_HOME:-$HOME
 
 ## 语言服务
 
-`lua/lsp.lua` 通过 `vim.lsp.enable` 启用：`vtsls`、`clangd`、`lua_ls`、`ty`、`vue_ls`、`tailwindcss`。
+`lua/lsp.lua` 通过 `vim.lsp.enable` 启用 `lua/local.lua` 中 `lsp.servers` 列出的服务；该文件不存在时默认只启用 `lua_ls`。
 
 - 这份清单同时也是 `mason-lspconfig` 的 `ensure_installed`，只需维护一处；
 - `automatic_enable` 已关闭，避免 mason 把所有已安装的服务都隐式打开；
-- Rust 由 rustaceanvim 提供，rust-analyzer 建议用 `rustup component add rust-analyzer` 安装；
-- 单个服务的细粒度配置放在 `lsp/<服务名>.lua`（例如 `lsp/lua_ls.lua`），会与 nvim-lspconfig 自带的同名配置合并。
+- 需要覆盖某个服务的配置时，写在 `lua/local.lua` 的 `lsp.configs` 中（例如使用系统自带的 qmlls），或放到 `lsp/<服务名>.lua`（例如 `lsp/lua_ls.lua`），后者会与 nvim-lspconfig 自带的同名配置合并；
+- Rust 由 rustaceanvim 提供，rust-analyzer 建议用 `rustup component add rust-analyzer` 安装。
 
 ## 调试
 

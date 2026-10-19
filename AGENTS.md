@@ -17,11 +17,16 @@
 
 ### lua/lsp.lua
 启用 LSP 的清单（同时也是 mason 的自动安装清单，只需维护这一处）。
+清单本身来自不被 git 跟踪的 `lua/local.lua`（`lsp.servers` / `lsp.configs`），文件缺失时只启用 lua_ls。
 注意：Rust 已被 Rustaceanvim 插件接管，请勿在此添加 Rust 的语言服务配置。
 也注意：不要把这个文件命名为 lspconfig.lua，那会与 nvim-lspconfig 的同名模块（`require('lspconfig')`）冲突。
 
+### lua/local.example.lua
+个人配置模板，复制为 `lua/local.lua` 后使用。
+`lua/local.lua` 已被 .gitignore 忽略，用于放置 Neovide 字体、LSP 服务清单与覆盖、Tree-sitter 语言列表等用户特定内容；不要把它提交进仓库。
+
 ### lua/neovide.lua
-目前仅为 neovide 设置字体
+从 `lua/local.lua` 读取 Neovide 字体，未配置时不设置
 
 ### lua/options.lua
 部分编辑器设置

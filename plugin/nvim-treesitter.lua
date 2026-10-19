@@ -19,9 +19,10 @@ local function find_ts_cli()
   return exe
 end
 
-local ts_languages = {
-  'c', 'cpp', 'lua', 'vim', 'vimdoc', 'query',
-  'javascript', 'typescript', 'tsx', 'rust',
+-- 个人语言清单放在不被 git 跟踪的 lua/local.lua，缺失时只用 Neovim 内置解析器
+local ok, user = pcall(require, 'local')
+local ts_languages = (ok and user.treesitter and user.treesitter.languages) or {
+  'c', 'lua', 'vim', 'vimdoc', 'query',
 }
 
 local cli, reason = find_ts_cli()
