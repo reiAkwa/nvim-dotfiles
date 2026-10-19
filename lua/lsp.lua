@@ -6,6 +6,7 @@ local servers = {
   'ty',
   'vue_ls',
   'tailwindcss',
+  'qmlls',
 }
 
 -- 此时 nvim-lspconfig 尚未进入 runtimepath，vim.lsp.config 会延迟解析，安全
